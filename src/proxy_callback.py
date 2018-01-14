@@ -1,6 +1,6 @@
 import socket
 import time
-from selectors2 import DefaultSelector, EVENT_READ, EVENT_WRITE, ERROR_TYPES
+from selectors2 import DefaultSelector, EVENT_READ, EVENT_WRITE, _ERROR_TYPES
 
 selector = DefaultSelector()
 
