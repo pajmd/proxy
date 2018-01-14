@@ -2,6 +2,7 @@ import socket
 import time
 from selectors2 import DefaultSelector, EVENT_READ, EVENT_WRITE, _ERROR_TYPES
 from config_util import get_config
+from log_util import get_logger
 
 selector = DefaultSelector()
 
@@ -29,7 +30,11 @@ def event_loop(proxy_sockets):
 
 def acceptable(proxy_socket, host, port):
     (client_socket, address) = proxy_socket.accept()
-    establish_comm(client_socket, host, port)
+    try:
+        establish_comm(client_socket, host, port)
+    except Exception as ex:
+        print("{}:{} is not listening, not to bothered".format(host, port))
+        return
     while 1:
         events = selector.select()
         for key, mask in events:
@@ -39,6 +44,7 @@ def acceptable(proxy_socket, host, port):
 def read_socket(sock_read, sock_write, buffer):
     selector.unregister(sock_read.fileno())
     buffer = sock_read.recv(1024)
+    logger.info('From {} to {}: {}'.format(sock_read.getpeername(), sock_write.getpeername(), buffer))
     if bytes:
         sock_write.send(buffer)
         callback = lambda : read_socket(sock_read, sock_write, buffer)
@@ -60,6 +66,7 @@ if __name__ == '__main__':
     proxy_port = 8555
     host_port = 2000
     host = "10.0.3.15"
+    logger = get_logger(__file__)
     configs = get_config(__file__)
     sockets = []
     for config in configs:
