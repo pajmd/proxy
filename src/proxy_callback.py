@@ -1,8 +1,10 @@
 import socket
 import time
-from selectors2 import DefaultSelector, EVENT_READ, EVENT_WRITE, _ERROR_TYPES
-from config_util import get_config
-from log_util import get_logger
+
+from selectors2 import DefaultSelector, EVENT_READ
+
+from util.config_util import get_config
+from util.log_util import get_logger
 
 selector = DefaultSelector()
 
