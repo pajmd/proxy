@@ -49,6 +49,8 @@ def read_socket(sock_read, sock_write, buffer):
         sock_write.send(buffer)
         callback = lambda : read_socket(sock_read, sock_write, buffer)
         selector.register(sock_read.fileno(), EVENT_READ, callback) # ??? no fileno
+    else:
+        print("Connection closed")
 
 def establish_comm(client_socket, host, port):
     remote_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
