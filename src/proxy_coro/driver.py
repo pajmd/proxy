@@ -13,5 +13,4 @@ class Driver(object):
             next_promise = self.coro.send(promise.result)
         except StopIteration:
             return
-
         next_promise.add_done_callback(self.step)

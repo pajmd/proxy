@@ -1,0 +1,10 @@
+#- proxy:                # proxy manager
+#    proxy_port: 8885      # proxy port number
+#    host: pjmd-ubuntu16   # remote host the proxy will connect to
+#    port: 4000            # remote host port number the proxy will connect to
+#
+- proxy:                # proxy manager
+    proxy_port: 8886      # proxy port number
+    host: pjmd-ubuntu16 # remote host the proxy will connect to
+    port: 4001            # remote host port number the proxy will connect to
+

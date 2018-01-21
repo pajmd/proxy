@@ -1,0 +1,24 @@
+#- proxy:                # proxy manager
+#    proxy_port: 8885      # proxy port number
+#    host: pjmd-ubuntu16   # remote host the proxy will connect to
+#    port: 4000            # remote host port number the proxy will connect to
+#
+#- proxy:                # proxy manager
+#    proxy_port: 8886      # proxy port number
+#    host: pjmd-ubuntu16 # remote host the proxy will connect to
+#    port: 4001            # remote host port number the proxy will connect to
+#
+#- proxy:                  # proxy manager
+#    proxy_host: localhost # proxy host name
+#    proxy_port: 8887        # proxy port number
+#    host: pjmd-ubuntu16   # remote host the proxy will connect to
+#    port: 4000            # remote host port number the proxy will connect to
+
+#  Trying to use the callback proxy as a web proxy:
+#  What will need to do is accept the connection read the header to find out the address
+#  forward the call to this address
+- proxy:                  # proxy manager
+    proxy_port: 8888        # proxy port number
+    host: dailymail.co.uk  # remote host the proxy will connect to
+    port: 80            # remote host port number the proxy will connect to
+

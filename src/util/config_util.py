@@ -7,13 +7,23 @@ except ImportError:
     YAML_AVAILABLE = False
 
 
-def get_config(this_tool):
-    dir_file = "{}/../config".format(os.path.dirname(this_tool))
+MAIN_LOG = ""
+
+
+def set_main_log(name):
+    global MAIN_LOG
+    MAIN_LOG = name
+
+
+def get_config(from_this_file):
+    dir_file = "{}/../config".format(os.path.dirname(from_this_file))
+    config_name = os.path.splitext(from_this_file)
+    config_name = os.path.basename(config_name[0])
     if YAML_AVAILABLE:
-        config_file = "{}/proxy_config.yaml".format(dir_file)
+        config_file = "{}/{}.yaml".format(dir_file, config_name)
         loader = yaml.load
     else:
-        config_file = "{}/proxy_config.json".format(dir_file)
+        config_file = "{}/{}.json".format(dir_file, config_name)
         loader = json.load
     with open(config_file, "r") as f:
         configs = loader(f)

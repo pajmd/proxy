@@ -90,10 +90,10 @@ if __name__ == '__main__':
     logger.info("in {}".format(__file__))
     dir_file = "{}/../config".format(os.path.dirname(__file__))
     if YAML_AVAILABLE:
-        config_file = "{}/proxy_config.yaml".format(dir_file)
+        config_file = "{}/proxy_multiprocesses.yaml".format(dir_file)
         loader = yaml.load
     else:
-        config_file = "{}/proxy_config.json".format(dir_file)
+        config_file = "{}/proxy_multiprocesses.json".format(dir_file)
         loader = json.load
     with open(config_file, "r") as f:
         configs = loader(f)

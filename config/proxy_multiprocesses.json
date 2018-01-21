@@ -1,0 +1,24 @@
+[
+  {
+    "proxy": {
+      "proxy_port": 8885,
+      "host": "pjmd-ubuntu16",
+      "port": 4000
+    }
+  },
+  {
+    "proxy": {
+      "proxy_port": 8886,
+      "host": "pjmd-ubuntu16",
+      "port": 4001
+    }
+  },
+  {
+    "proxy": {
+      "roxy_host": "localhost",
+      "proxy_port": 8887,
+      "host": "pjmd-ubuntu16",
+      "port": 4000
+    }
+  }
+]
