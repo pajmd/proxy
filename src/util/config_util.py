@@ -10,9 +10,9 @@ except ImportError:
 MAIN_LOG = ""
 
 
-def set_main_log(name):
+def set_main_log(filename):
     global MAIN_LOG
-    MAIN_LOG = name
+    MAIN_LOG = os.path.basename(os.path.splitext(os.path.basename(filename))[0])
 
 
 def get_config(from_this_file):

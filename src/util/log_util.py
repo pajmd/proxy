@@ -11,7 +11,7 @@ def get_logger(me__file__):
         os.makedirs(dir_log)
     log_file = "{}/{}".format(dir_log, LOG_FILE)
     file_handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=MAX_SIZE_LOG, backupCount=2)
-    logger = logging.getLogger(os.path.basename(os.path.splitext(os.path.basename(__file__))[0]))
+    logger = logging.getLogger(os.path.basename(os.path.splitext(os.path.basename(me__file__))[0]))
     logger.propagate = False
     log_formatter = logging.Formatter(
         '%(asctime)s - [%(filename)s:%(lineno)s - %(funcName)s() ] - [%(levelname)s] %(message)s')
