@@ -1,5 +1,5 @@
-from proxy_coro.driver import Driver
-from proxy_coro.connector import Connector
+from proxy_coroutine.driver import Driver
+from proxy_coroutine.connector import Connector
 import util.log_util as lu
 import util.config_util as cu
 import time
